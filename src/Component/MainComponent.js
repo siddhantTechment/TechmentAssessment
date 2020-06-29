@@ -1,5 +1,5 @@
 import React from 'react'
-import {Switch, Route} from 'react-router-dom'
+import {Switch, Route, Redirect} from 'react-router-dom'
 import Search from './searchComponent'
 import Detail from './detailComponent'
 
@@ -8,6 +8,7 @@ const Main = ()=>{
         <Switch>
             <Route exact path="/" component={Search}/>
             <Route path="/country/:countryname" component={Detail} />
+            <Redirect to="/"/>
         </Switch>
     </div>
     )
