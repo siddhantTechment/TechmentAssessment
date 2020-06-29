@@ -19,7 +19,6 @@ const Detail = (props) => {
             }
         })
     }
-    console.log(data)
     return (<div className="container">
         <h2 >Welcome to Country Page</h2>
         <div className="row mt-5">
