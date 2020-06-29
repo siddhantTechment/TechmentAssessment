@@ -53,7 +53,7 @@ const Detail = (props) => {
                     <p className="card-text">Speed: {data.wind_speed}</p>
                     <p className="card-text">Precip: {data.precip}</p>
                 </div>
-            </div>: <div className="alert alert-danger mt-5" role="alert">
+            </div>: getError && <div className="alert alert-danger mt-5" role="alert">
                 {getError}
             </div>}
         
