@@ -20,8 +20,9 @@ const Search = (props)=>{
     
     return(<div className="container">
         <div className="col-md-12">
-        <input type="text" placeholder="Enter Country" onChange={textHandle}/>
-        <button onClick={handleSubmit} disabled={inputState > 0 ? false : true}>Submit</button>
+            <h3>Welcome to Assesment</h3>
+        <input type="text" className="form-control" placeholder="Enter Country" onChange={textHandle}/>
+        <button className="btn btn-primary mt-1" onClick={handleSubmit} disabled={inputState > 0 ? false : true}>Submit</button>
         </div>
     </div>
     )

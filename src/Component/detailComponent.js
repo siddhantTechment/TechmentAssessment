@@ -17,8 +17,8 @@ const Detail = (props) => {
         <div className="row mt-5">
 
             {props.location.state && props.location.state.map((data, index) => {
-                return <div className="col-md-6" key={index}>
-                    <div className="card" style={{ width: "18rem" }}>
+                return <div className="col-md-6 mt-4" key={index}>
+                    <div className="card" style={{ width: "18rem",margin: "auto" }}>
                         <img className="card-img-top" src={data.flag} alt="Card image cap" />
                         <div className="card-body">
                             <h5 className="card-title">{data.name}</h5>
@@ -34,8 +34,10 @@ const Detail = (props) => {
         </div>
 
         <div className="container">
-            <div className="row ">
-           { data && <div className="card" style={{ width: "18rem" }}>
+            <div className="row">
+                <div className="col-md-12 mt-5">
+                <h4>{getCapital && "Capital Weather of " + getCapital}</h4>
+           { data && <div className="card" style={{ width: "18rem", margin: "auto" }}>
                 <img className="card-img-top" src={data.weather_icons[0]} alt="Card image cap" />
                 <div className="card-body">
                 <h5 className="card-title">{getCapital}</h5>
@@ -44,6 +46,8 @@ const Detail = (props) => {
                     <p className="card-text">Precip: {data.precip}</p>
                 </div>
             </div>}
+            </div>
+
             </div>
         </div>
     </div>
