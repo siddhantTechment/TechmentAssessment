@@ -4,11 +4,19 @@ import axios from 'axios'
 const Detail = (props) => {
     let [data, setData] = useState(null)
     let [getCapital, setCapital] = useState(null)
+    let [getError, setError] = useState(null)
+
     const handleWeather = (e) => {
         let capital = e.target.id
         setCapital(capital)
         axios.get('http://api.weatherstack.com/current?access_key=b17998b4a249fa42631a5e87bc74c0fa&query=' + capital).then((res) => {
-            setData(res.data.current)
+           if(res.data.success === false) {
+            setError(res.data.error.info)
+            setData(null)
+            }
+            else{
+                setData(res.data.current)
+            }
         })
     }
     console.log(data)
@@ -37,7 +45,7 @@ const Detail = (props) => {
             <div className="row">
                 <div className="col-md-12 mt-5">
                 <h4>{getCapital && "Capital Weather of " + getCapital}</h4>
-           { data && <div className="card" style={{ width: "18rem", margin: "auto" }}>
+           { data ? <div className="card" style={{ width: "18rem", margin: "auto" }}>
                 <img className="card-img-top" src={data.weather_icons[0]} alt="Card image cap" />
                 <div className="card-body">
                 <h5 className="card-title">{getCapital}</h5>
@@ -45,7 +53,10 @@ const Detail = (props) => {
                     <p className="card-text">Speed: {data.wind_speed}</p>
                     <p className="card-text">Precip: {data.precip}</p>
                 </div>
+            </div>: <div className="alert alert-danger mt-5" role="alert">
+                {getError}
             </div>}
+        
             </div>
 
             </div>

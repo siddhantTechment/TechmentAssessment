@@ -3,8 +3,7 @@ import {Switch, Route} from 'react-router-dom'
 import Search from './searchComponent'
 import Detail from './detailComponent'
 
-const Main = (props)=>{
-
+const Main = ()=>{
     return(<div className="container">
         <Switch>
             <Route exact path="/" component={Search}/>
